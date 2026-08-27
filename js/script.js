@@ -1,0 +1,111 @@
+//初期化
+const mode = sessionStorage.getItem("mode");
+if(!mode){
+    location.href="index.html";
+}
+sessionStorage.removeItem("mode");
+let choices = [];
+let index = 0;
+
+let questionCount = 0;
+let score = 0;
+
+let time = 60;
+let timer;
+
+
+//関数
+function restartGame(){
+    sessionStorage.setItem("mode","time");
+    location.reload();
+}
+
+function startTimer(){
+    timer = setInterval(function(){
+        time--;
+        document.getElementById("timer").textContent ="残り時間 : "+time+"秒";
+
+        if(time <= 0){
+            clearInterval(timer);
+            finishQuiz();
+        }
+    },1000);
+}
+
+function showWord(){
+    index = Math.floor(Math.random() * words.length);
+
+    document.getElementById("word").textContent = words[index].english;
+
+    makeChoices();
+    setButtons(true);
+}
+
+function makeChoices(){
+    choices = [];
+    choices.push(words[index].japanese);
+
+    while(choices.length < 4){
+        let random = Math.floor(Math.random() * words.length);
+        let answer = words[random].japanese;
+        if(!choices.includes(answer)){
+            choices.push(answer);
+        }
+    }
+    
+    choices.sort(()=> Math.random() - 0.5);
+
+    document.getElementById("btn1").textContent = choices[0];
+    document.getElementById("btn2").textContent = choices[1];
+    document.getElementById("btn3").textContent = choices[2];
+    document.getElementById("btn4").textContent = choices[3];
+
+    document.getElementById("result").textContent = "";
+}
+
+function checkAnswer(number){
+    if(choices[number] == words[index].japanese){
+        score++;
+        document.getElementById("result").textContent ="⭕️正解！";
+    }else{
+        document.getElementById("result").textContent ="❌️不正解　正解は「" + words[index].japanese + "」";
+    }
+
+    setButtons(false);
+    setTimeout(function(){
+        if(mode == "time"){
+            if(time > 0)showWord();
+        }
+        else{
+            showWord();
+        }
+    },500);
+    questionCount++;
+}
+
+function setButtons(enabled){
+    document.getElementById("btn1").disabled = !enabled;
+    document.getElementById("btn2").disabled = !enabled;
+    document.getElementById("btn3").disabled = !enabled;
+    document.getElementById("btn4").disabled = !enabled;
+}
+
+function finishQuiz(){
+    clearInterval(timer);
+    let percent = 0;
+    if(questionCount > 0){percent = Math.round(score / questionCount*100);}
+    document.querySelector(".answer-grid").style.display="none";
+    document.getElementById("word").textContent="終了！";
+    document.getElementById("result").innerHTML = "解いた問題 : " + questionCount + "<br>" + "正解数 : " + score + "<br>" + "正答率 : "+ percent + "%"
+    sessionStorage.removeItem("mode");
+    document.getElementById("retryBtn").style.display="block";
+}
+
+//さいしょのやつ
+showWord();
+if(mode === "time"){
+    startTimer();
+}
+else{
+    document.getElementById("timer").style.display = "none";
+}
