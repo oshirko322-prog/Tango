@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>英単語アプリ</title>
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/button.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home,settings" />
+    </head>
+
+    <body>
+        <h1 class="heading-2">
+            <span class="material-symbols-outlined" onclick="goBack()">home</span>
+            <span onclick = "goBack()">英単語</span>
+            <span></span>
+        </h1>
+        <p id="timer">残り時間: 60秒</p>
+        <h2 id="word"></h2>
+
+        <div class="answer-grid">
+            <button class="answer-btn" id="btn1" onclick ="checkAnswer(0)"></button>
+            <button class="answer-btn" id="btn2" onclick ="checkAnswer(1)"></button>
+            <button class="answer-btn" id="btn3" onclick ="checkAnswer(2)"></button>
+            <button class="answer-btn" id="btn4" onclick ="checkAnswer(3)"></button>
+        </div>
+
+        <p id="result"></p>
+
+        <button id="retryBtn"class="retry-btn" onclick="restartGame()" style="display:none;">もう一度</button>
+
+        <script src="js/data.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/mode.js"></script>
+    </body>
+</html>
