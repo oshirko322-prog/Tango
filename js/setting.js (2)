@@ -1,0 +1,39 @@
+// ホームへ戻る
+function goBack(){
+    location.href = "index.html";
+}
+
+function save(){ 
+    //1 
+    if(document.getElementById("range1").checked){ localStorage.setItem("range1","true"); }else{ localStorage.setItem("range1","false"); } 
+    //2
+    if(document.getElementById("range2").checked){ localStorage.setItem("range2","true"); }else{ localStorage.setItem("range2","false"); } 
+    //3
+    if(document.getElementById("range3").checked){ localStorage.setItem("range3","true"); }else{ localStorage.setItem("range3","false"); } 
+    //4 
+    if(document.getElementById("range4").checked){ localStorage.setItem("range4","true"); }else{ localStorage.setItem("range4","false"); } 
+    //5 
+    if(document.getElementById("range5").checked){ localStorage.setItem("range5","true"); }else{ localStorage.setItem("range5","false"); }
+    //6 
+    if(document.getElementById("range6").checked){ localStorage.setItem("range6","true"); }else{ localStorage.setItem("range6","false"); } 
+    //7 
+    if(document.getElementById("range7").checked){ localStorage.setItem("range7","true"); }else{ localStorage.setItem("range7","false"); } 
+    //8 
+    if(document.getElementById("range8").checked){ localStorage.setItem("range8","true"); }else{ localStorage.setItem("range8","false"); } 
+    //9 
+    if(document.getElementById("range9").checked){ localStorage.setItem("range9","true"); }else{ localStorage.setItem("range9","false"); } 
+    //10 
+    if(document.getElementById("range10").checked){ localStorage.setItem("range10","true"); }else{ localStorage.setItem("range10","false"); } 
+    //11 
+    if(document.getElementById("range11").checked){ localStorage.setItem("range11","true"); }else{ localStorage.setItem("range11","false"); } 
+    //12 
+    if(document.getElementById("range12").checked){ localStorage.setItem("range12","true"); }else{ localStorage.setItem("range12","false"); } 
+} 
+
+window.onload = function(){
+    for(let i = 1; i <= 12; i++){ 
+        if(localStorage.getItem("range" + i) === "true"){ 
+            document.getElementById("range" + i).checked = true; 
+        } 
+    }
+}
