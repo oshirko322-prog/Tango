@@ -15,60 +15,60 @@
         <h1 class="heading-2">
             <span class="material-symbols-outlined" onclick="goBack()">home</span>
             <span onclick = "goBack()">英単語</span>
-            <span></span>
+            <span class="material-symbols-outlined" onclick="location.href='setting.html'">settings</span>
         </h1>
         <h2>設定</h2>
 
         <div class="setting-item">
             <span>1〜200</span>
-            <label class="toggle-button-2"><input type="checkbox"/></label>
+            <label class="toggle-button-2"><input id="range1" type="checkbox" onchange="save()"></label>
         </div>
         <div class="setting-item">
             <span>201〜400</span>
-            <label class="toggle-button-2"><input type="checkbox"/></label>
+            <label class="toggle-button-2"><input id="range2" type="checkbox" onchange="save()"></label>
         </div>
         <div class="setting-item">
             <span>401〜600</span>
-            <label class="toggle-button-2"><input type="checkbox"/></label>
+            <label class="toggle-button-2"><input id="range3" type="checkbox" onchange="save()"></label>
         </div>
         <div class="setting-item">
             <span>601〜800</span>
-            <label class="toggle-button-2"><input type="checkbox"/></label>
+            <label class="toggle-button-2"><input id="range4" type="checkbox" onchange="save()"></label>
         </div>
         <div class="setting-item">
             <span>801〜1000</span>
-            <label class="toggle-button-2"><input type="checkbox"/></label>
+            <label class="toggle-button-2"><input id="range5" type="checkbox" onchange="save()"></label>
         </div>
         <div class="setting-item">
             <span>1001〜1200</span>
-            <label class="toggle-button-2"><input type="checkbox"/></label>
+            <label class="toggle-button-2"><input id="range6" type="checkbox" onchange="save()"></label>
         </div>
         <div class="setting-item">
             <span>1201〜1400</span>
-            <label class="toggle-button-2"><input type="checkbox"/></label>
+            <label class="toggle-button-2"><input id="range7" type="checkbox" onchange="save()"></label>
         </div>
         <div class="setting-item">
             <span>1401〜1600</span>
-            <label class="toggle-button-2"><input type="checkbox"/></label>
+            <label class="toggle-button-2"><input id="range8" type="checkbox" onchange="save()"></label>
         </div>
         <div class="setting-item">
             <span>1601〜1800</span>
-            <label class="toggle-button-2"><input type="checkbox"/></label>
+            <label class="toggle-button-2"><input id="range9" type="checkbox" onchange="save()"></label>
         </div>
         <div class="setting-item">
             <span>1801〜2000</span>
-            <label class="toggle-button-2"><input type="checkbox"/></label>
+            <label class="toggle-button-2"><input id="range10" type="checkbox" onchange="save()"></label>
         </div>
         <div class="setting-item">
             <span>2001〜2200</span>
-            <label class="toggle-button-2"><input type="checkbox"/></label>
+            <label class="toggle-button-2"><input id="range11" type="checkbox" onchange="save()"></label>
         </div>
         <div class="setting-item">
             <span>2201〜2300</span>
-            <label class="toggle-button-2"><input type="checkbox"/></label>
+            <label class="toggle-button-2"><input id="range12" type="checkbox" onchange="save()"></label>
         </div>
 
 
-        <script src="js/mode.js"></script>
+        <script src="js/setting.js"></script>
     </body>
 </html>
